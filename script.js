@@ -1,16 +1,20 @@
 let grid = document.querySelector("#grid");
 grid.style["background-color"] = "black";
 let square;
+let gridArray = [];
 
 for (let i = 0; i < 256; i++) {
     square = document.createElement("div");
-    square.classList.add("square");
-    square.style["background-color"] = "rgba(0, 0, 0, 0)";  // Transparent color
     grid.appendChild(square);
-    square.addEventListener("mouseenter", function(e) {
-        square.style["background-color"] = "pink";
+    square.style["background-color"] = "black";
+    square.style["width"] = "40px";
+    square.style["height"] = "40px";
+    gridArray.push(square);
+    gridArray[i].addEventListener("mouseenter", () => {
+        gridArray[i].style["background-color"] = "pink";
     });
-    square.addEventListener("mouseleave", function(e) {
-        square.style["background-color"] = "rgba(0, 0, 0, 0)";
+    gridArray[i].addEventListener("mouseleave", () => {
+        gridArray[i].style["background-color"] = "black";
     });
 }
+
